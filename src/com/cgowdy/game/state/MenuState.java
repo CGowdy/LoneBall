@@ -28,7 +28,7 @@ public class MenuState extends State {
 
 	@Override
 	public void onClick(MouseEvent e) {
-		System.out.println("Clicked the menu with " + e.getButton());
+		setCurrentState(new PlayState());
 
 	}
 
