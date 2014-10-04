@@ -2,6 +2,8 @@ package com.cgowdy.game.model;
 
 import java.awt.Rectangle;
 
+import com.cgowdy.game.main.GameMain;
+
 public class Paddle {
 	private int x, y, width, height, velY;
 	private Rectangle rect;
@@ -15,25 +17,50 @@ public class Paddle {
 		rect = new Rectangle(x, y, width, height);
 		velY = 0;
 	}
-	
-	public void update(){
-		y += velY;
+
+	public void update() {
+			y += velY;
+			if (y < 0){
+				y = 0;
+			} else if (y + height > GameMain.GAME_HEIGHT){
+				y = GameMain.GAME_HEIGHT - height;
+			}
 		updateRect();
 	}
-	
-	private void updateRect(){
+
+	private void updateRect() {
 		rect.setBounds(x, y, width, height);
 	}
-	
-	private void accelUp(){
+
+	public void accelUp() {
 		velY = -MOVEMENT_SPEED;
 	}
-	
-	private void accelDown(){
+
+	public void accelDown() {
 		velY = MOVEMENT_SPEED;
 	}
-	
-	private void stop(){
+
+	public void stop() {
 		velY = 0;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public Rectangle getRect() {
+		return rect;
 	}
 }

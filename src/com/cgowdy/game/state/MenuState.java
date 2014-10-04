@@ -10,7 +10,6 @@ public class MenuState extends State {
 
 	@Override
 	public void init() {
-		System.out.println("Entered menu state.");
 
 	}
 
@@ -34,13 +33,13 @@ public class MenuState extends State {
 
 	@Override
 	public void onKeyPress(KeyEvent e) {
-		System.out.println("Pressed " + e.getKeyChar() + " on main menu");
-
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+			System.exit(0);
+		}
 	}
 
 	@Override
 	public void onKeyRelease(KeyEvent e) {
-		System.out.println("Released " + e.getKeyChar() + " on main menu");
 
 	}
 

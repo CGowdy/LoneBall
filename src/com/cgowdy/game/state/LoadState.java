@@ -12,7 +12,6 @@ public class LoadState extends State {
 	@Override
 	public void init() {
 		Resources.load();
-		System.out.println("loaded successfully");
 
 	}
 
